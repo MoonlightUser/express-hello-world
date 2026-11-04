@@ -67,11 +67,20 @@ public final class EventBriefData {
         int i=raw.indexOf("[EVENTBRIEF_V1]");
         int j=raw.indexOf("[/EVENTBRIEF_V1]",i<0?0:i);
         if(i<0 || j<=i)continue;
-        String block=raw.substring(i+15,j).replace("<br>","\n").replace("<br/>","\n").replace("<br />","\n");
-        String status=field(block,"STATUS").toLowerCase(Locale.ROOT);
-        String category=field(block,"CATEGORY").toLowerCase(Locale.ROOT);
-        String summary=clean(field(block,"SUMMARY"));
-        String why=clean(field(block,"WHY"));
+        // Google Calendar may fold the newlines inside description metadata.
+        // Parse labels using whitespace-independent delimiters.
+        String block=raw.substring(i+15,j).replaceAll("(?i)<br\\s*/?>"," ")
+          .replaceAll("\\s+"," ").trim();
+        Matcher metadata=Pattern.compile(
+          "(?i)^STATUS\\s*:\\s*(registered|open|suggested)\\s+"+
+          "CATEGORY\\s*:\\s*(career|social)\\s+"+
+          "SUMMARY\\s*:\\s*(.*?)\\s+WHY\\s*:\\s*(.+)$"
+        ).matcher(block);
+        if(!metadata.matches())continue;
+        String status=metadata.group(1).toLowerCase(Locale.ROOT);
+        String category=metadata.group(2).toLowerCase(Locale.ROOT);
+        String summary=clean(metadata.group(3));
+        String why=clean(metadata.group(4));
         if(!status.equals("suggested") && !status.equals("registered") && !status.equals("open"))continue;
         if(!category.equals("career") && !category.equals("social"))continue;
         if(summary.isEmpty() || !seen.add(id+":"+start))continue;
