@@ -39,7 +39,7 @@ public class BriefWidgetProvider extends AppWidgetProvider {
     PendingIntent app=PendingIntent.getActivity(c,id+100000,new Intent(c,MainActivity.class),
       PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
     v.setOnClickPendingIntent(R.id.widget_title,app);
-    PendingIntent detail=PendingIntent.getActivity(c,id,new Intent(c,DetailActivity.class),
+    PendingIntent detail=PendingIntent.getActivity(c,id,new Intent(c,CalendarOpenActivity.class),
       PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_MUTABLE);
     v.setPendingIntentTemplate(R.id.event_list,detail);
     m.updateAppWidget(id,v);

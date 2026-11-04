@@ -44,7 +44,12 @@ public class MainActivity extends Activity {
     BriefWidgetProvider.refreshAll(this);
     List<EventBriefData.Item> events=EventBriefData.load(this);
     boolean allowed=checkSelfPermission(Manifest.permission.READ_CALENDAR)==PackageManager.PERMISSION_GRANTED;
-    status.setText(allowed?"✓ Календарь подключён · "+events.size()+" мероприятий":"Требуется доступ к календарю");
+    int todayCount=0,tomorrowCount=0;
+    for(EventBriefData.Item e:events){if(e.day==0)todayCount++;else tomorrowCount++;}
+    status.setText(allowed?"✓ Сегодня: "+todayCount+" · Завтра: "+tomorrowCount:
+      "Требуется доступ к календарю");
+    if(allowed && tomorrowCount==0)
+      Toast.makeText(this,"Если в Google Calendar есть завтрашнее событие, открой Google Calendar и обнови синхронизацию",Toast.LENGTH_LONG).show();
     feed.removeAllViews();
     for(int day=0;day<2;day++){
       label(feed,day==0?"СЕГОДНЯ":"ЗАВТРА",17,0xFF9DE5B8);

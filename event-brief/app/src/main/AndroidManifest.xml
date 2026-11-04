@@ -6,6 +6,7 @@
       <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
     </activity>
     <activity android:name=".DetailActivity" android:exported="false"/>
+    <activity android:name=".CalendarOpenActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     <receiver android:name=".BriefWidgetProvider" android:exported="true">
       <intent-filter>
         <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>

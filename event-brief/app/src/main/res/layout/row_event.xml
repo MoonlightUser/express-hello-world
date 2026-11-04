@@ -1,13 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/event_row" android:layout_width="match_parent" android:layout_height="wrap_content"
-  android:orientation="vertical" android:padding="13dp" android:background="@drawable/card_bg">
-  <TextView android:id="@+id/event_title" android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:textSize="15sp" android:textColor="#FFFFFF" android:textStyle="bold" android:maxLines="2"/>
-  <TextView android:id="@+id/event_meta" android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:layout_marginTop="5dp" android:textSize="11sp" android:textColor="#A6EBC9"/>
-  <TextView android:id="@+id/event_summary" android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:layout_marginTop="9dp" android:textSize="13sp" android:textColor="#E8EFFA"
-    android:lineSpacingExtra="3dp" android:maxLines="12"/>
-  <TextView android:id="@+id/event_why" android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:layout_marginTop="9dp" android:textSize="12sp" android:textColor="#B6CBE5" android:maxLines="4"/>
+    android:id="@+id/event_row" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="10dp" android:background="@drawable/card_bg">
+  <TextView android:id="@+id/event_title" android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:textSize="14sp" android:textColor="#FFFFFF"
+      android:fontFamily="sans" android:textStyle="bold" android:maxLines="2" android:ellipsize="end"/>
+  <TextView android:id="@+id/event_meta" android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginTop="3dp"
+      android:textSize="11sp" android:textColor="#B2F2D7" android:maxLines="1"
+      android:ellipsize="end"/>
+  <TextView android:id="@+id/event_summary" android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginTop="6dp"
+      android:textSize="12.5sp" android:textColor="#F3F6FB"
+      android:lineSpacingExtra="1dp" android:maxLines="6" android:ellipsize="end"/>
+  <TextView android:id="@+id/event_why" android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginTop="5dp"
+      android:textSize="11sp" android:textColor="#C9E1F2"
+      android:maxLines="3" android:ellipsize="end"/>
 </LinearLayout>

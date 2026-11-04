@@ -1,4 +1,5 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/header_text" android:layout_width="match_parent" android:layout_height="wrap_content"
-  android:paddingTop="7dp" android:paddingBottom="5dp"
-  android:textColor="#A7E7C2" android:textSize="13sp" android:textStyle="bold"/>
+    android:id="@+id/header_text" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:paddingTop="7dp" android:paddingBottom="3dp" android:paddingStart="4dp"
+    android:textColor="#B2F2D7" android:textSize="11sp" android:letterSpacing="0.10"
+    android:textStyle="bold"/>

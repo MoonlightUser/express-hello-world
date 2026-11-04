@@ -1,20 +1,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent" android:layout_height="match_parent"
-  android:orientation="vertical" android:padding="12dp" android:background="@drawable/widget_bg">
-  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
-    <TextView android:id="@+id/widget_title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-      android:text="☀  Event Brief" android:textSize="18sp" android:textStyle="bold" android:textColor="#FFFFFF"/>
-    <TextView android:id="@+id/widget_refresh" android:layout_width="42dp" android:layout_height="38dp"
-      android:text="↻" android:textSize="25sp" android:gravity="center" android:textColor="#C6D5E7"
-      android:contentDescription="Обновить"/>
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="9dp" android:background="@drawable/widget_bg">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:gravity="center_vertical" android:minHeight="31dp">
+    <TextView android:id="@+id/widget_title" android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:text="☀ Event Brief" android:textSize="16sp"
+        android:fontFamily="sans" android:textStyle="bold" android:textColor="#FFFFFF"
+        android:singleLine="true"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="СЕГОДНЯ · ЗАВТРА" android:textSize="9sp" android:textColor="#C4D8EB"
+        android:layout_marginEnd="5dp" android:singleLine="true"/>
+    <TextView android:id="@+id/widget_refresh" android:layout_width="29dp" android:layout_height="29dp"
+        android:gravity="center" android:text="↻" android:textSize="23sp"
+        android:textColor="#D0E9FA" android:contentDescription="Обновить"/>
   </LinearLayout>
-  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:text="Сегодня и завтра · только мероприятия" android:textSize="11sp" android:textColor="#AFC4D5"
-    android:layout_marginBottom="10dp"/>
-  <ListView android:id="@+id/event_list" android:layout_width="match_parent" android:layout_height="0dp"
-    android:layout_weight="1" android:divider="@android:color/transparent" android:dividerHeight="6dp"
-    android:scrollbars="none"/>
-  <TextView android:id="@+id/empty_text" android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:text="Событий пока нет. Открой приложение и проверь доступ к календарю."
-    android:textSize="12sp" android:textColor="#E0EAF5" android:padding="12dp"/>
+  <ListView android:id="@+id/event_list" android:layout_width="match_parent"
+      android:layout_height="0dp" android:layout_weight="1"
+      android:divider="@android:color/transparent" android:dividerHeight="5dp"
+      android:scrollbars="none"/>
+  <TextView android:id="@+id/empty_text" android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:textSize="12sp"
+      android:text="Нет мероприятий. Проверь синхронизацию календаря в приложении."
+      android:textColor="#E1EAF6" android:padding="8dp"/>
 </LinearLayout>
