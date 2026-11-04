@@ -1,0 +1,32 @@
+name: Build Event Brief APK
+on:
+  push:
+    branches: [eventbrief-apk-build-2026]
+    paths:
+      - 'event-brief/**'
+      - '.github/workflows/eventbrief-apk.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  android-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Build APK
+        run: gradle --no-daemon -p event-brief :app:assembleDebug
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: EventBrief-APK
+          path: event-brief/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
